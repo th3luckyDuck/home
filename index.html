@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html>
+
+<meta name="robots" content="noindex">
+
+<head>
+  <meta name="description" content="Ducky's Home">
+  <title>Ducky's Home</title>
+  <script src="https://aframe.io/releases/0.7.0/aframe.min.js"></script>
+  <script src="https://sdk.altvr.com/libs/altspace.js/2.9.0/altspace.js"></script>
+  <script src="https://tweenjs.github.io/tween.js/src/Tween.js"></script>
+  <script src="https://cdn.rawgit.com/oOblik/AltspaceVR-Native-Components-JS/0.1.2/js/JSNativeComponents.js"></script>
+  <script src="bake-vertex-light.js"></script>
+  <!--script src="https://rawgit.com/mayognaise/aframe-gif-shader/master/dist/aframe-gif-shader.min.js"></script>
+  <script src="https://rawgit.com/mayognaise/aframe-gif-component/master/dist/aframe-gif-component.min.js"></script-->
+</head>
+<body>
+
+</head>
+  <body>
+
+    <a-scene altspace="verticalAlign: middle; fullspace: true" vr-mode-ui="enabled: false">
+
+      <a-entity camera position="0 10 0" wasd-controls="fly: true" look-controls></a-entity>
+      <a-light id="light1" type="directional" intensity="10000" position="150 15 150"></a-light>
+
+      <!-- Asset Loading -->
+      <a-assets> 
+
+
+      <!--a-asset-item id="rol-mtl" src="rol.mtl"></a-asset-item>
+
+      <a-asset-item id="rol-obj" src="rol.obj"></a-asset-item>
+
+      <a-asset-item id="tree-mtl" src="tree.mtl"></a-asset-item>
+
+      <a-asset-item id="tree-obj" src="tree.obj"></a-asset-item>
+
+      <a-asset-item id="temp-mtl" src="temp1.mtl"></a-asset-item>
+
+      <a-asset-item id="temp-obj" src="temp1.obj"></a-asset-item-->
+
+      <a-asset-item id="base2-obj" src="base2.obj"></a-asset-item>
+      <a-asset-item id="has-obj" src="has.obj"></a-asset-item>
+
+      <img id="sky" src="sky1.jpg"/>
+      <a-asset-item id="firelogs-obj" src="firelogs.obj"></a-asset-item>
+      <a-asset-item id="has-mtl" src="has.mtl"></a-asset-item>
+
+      </a-assets>
+
+      <a-entity camera position="0 10 0" wasd-controls="fly: true" look-controls></a-entity>
+      <a-light id="light1" type="directional" intensity="10000" position="150 15 150"></a-light>
+
+
+      <a-entity position="0 -1.5 0">
+      <a-entity geometry="primitive:box;" scale="400 400 0.1" position="63 -0.25 -35" rotation="-90 0 -90" material="src:url(water.jpg);transparent:true;opacity:0.85">
+        <!--a-animation attribute='rotation' dur='75000' delay='0' fill='forwards' repeat='indefinite' easing='linear' from='-90 0 -90' to='-90 -360 -90'-->
+      </a-entity>      
+      <a-entity geometry="primitive:box;" scale="400 400 0.1" position="63 -0.7 -35" rotation="-90 0 -90" material="src:url(water.jpg);transparent:true;opacity:0.25"></a-entity>
+      <a-entity geometry="primitive:box;" scale="400 400 0.1" position="63 -0.9 -35" rotation="-90 0 -90" material="src:url(water.jpg);transparent:true;opacity:0.25"></a-entity>
+      <a-entity geometry="primitive:box;" scale="400 400 0.1" position="63 -1.1 -35" rotation="-90 0 -90" material="src:url(water.jpg);transparent:true;opacity:0.25"></a-entity>
+      <a-entity geometry="primitive:box;" scale="400 400 0.1" position="63 -1.3 -35" rotation="-90 0 -90" material="src:url(water.jpg);transparent:true;opacity:0.25"></a-entity>
+      <a-entity geometry="primitive:box;" scale="400 400 0.1" position="63 -1.5 -35" rotation="-90 0 -90" material="src:url(water.jpg);transparent:true;opacity:0.25"></a-entity>
+      <a-entity geometry="primitive:box;" scale="400 400 0.1" position="63 -1.7 -35" rotation="-90 0 -90" material="src:url(water.jpg);transparent:true;opacity:0.25"></a-entity>
+      <a-entity geometry="primitive:box;" scale="400 400 0.1" position="63 -1.9 -35" rotation="-90 0 -90" material="src:url(water.jpg);transparent:true;opacity:0.25"></a-entity>
+      <a-entity geometry="primitive:box;" scale="400 400 0.1" position="63 -2.1 -35" rotation="-90 0 -90" material="src:url(water.jpg);transparent:true;opacity:0.5"></a-entity>
+      </a-entity>
+
+      <a-entity position="0 1.5 0" rotation="0 165 0">
+
+        <!--a-entity position="-7 1.75 -9" rotation="0 245 0"-->
+
+      <!--a-entity geometry="primitive:sphere;" scale="10 50 10" position="-108 5 5" rotation="0 120 0" material="shader:gif;src:url(water.jpg);transparent:false;color:#fff;opacity:0.75 ">
+      </a-entity-->
+
+      <!--a-entity geometry="primitive:plane;" scale="125 85 125" position="-116.49 19.92 -11.32" rotation="0 135 0" material="shader:gif;src:url(fall.gif);transparent:true;color:#fff;opacity:0.75 ">
+      </a-entity-->
+
+
+      <a-entity position="13 1.2 -65">
+      <a-entity obj-model="obj: url(firelogs.obj); mtl: url(grass.mtl)" scale="4 4 4" position="-4 1 5" n-mesh-collider="type: environment; convex: false" geometry="buffer: false" bake-vertex-light></a-entity>
+      
+      <!--a-entity geometry="primitive:plane;" position="-56.42 2 -38.38" rotation="0 0 0" material="shader:gif;src:url(fire2.gif);transparent:true;color:#fff;opacity:0.75"></a-entity>
+      <a-entity geometry="primitive:plane;" position="-56.42 2 -38.38" rotation="0 90 0" material="shader:gif;src:url(fire2.gif);transparent:true;color:#fff;opacity:0.75"></a-entity>
+      <a-entity geometry="primitive:plane;" position="-56.42 2 -38.38" rotation="0 180 0" material="shader:gif;src:url(fire2.gif);transparent:true;color:#fff;opacity:0.75"></a-entity>
+      <a-entity geometry="primitive:plane;" position="-56.42 2 -38.38" rotation="0 270 0"  material="shader:gif;src:url(fire2.gif);transparent:true;color:#fff;opacity:0.75"></a-entity-->
+      </a-entity>
+   
+  
+        
+      
+
+      <a-entity position="-5 -6 -39" rotation="0 165 0">
+
+      <a-entity obj-model="obj: url(has.obj); mtl: url(has.mtl)" scale="4 4 4" position="0 0 0" geometry="buffer: false" bake-vertex-light></a-entity>
+      <a-entity obj-model="obj: url(base2.obj); mtl: url(has.mtl)" scale="4 4 4" position="0 0 0" n-mesh-collider="type: environment; convex: false" geometry="buffer: false" bake-vertex-light></a-entity>
+      <a-entity obj-model="obj:inside.obj" material="color: red; opacity: 0.2" scale="4 4 4" position="0 0 0"></a-entity>
+      
+
+
+      <a-box scale="25 0.1 25" position="0 3.75 -90" color="blue" opacity="0.3" altspace-cursor-collider="enabled: false"></a-box>
+
+      <!--a-entity geometry="primitive:octahedron;" scale="10 3 5" position="-108 5 5" rotation="0 120 0" material="shader:gif;src:url(fall.gif);transparent:false;color:#fff;opacity:0.75 ">
+      </a-entity-->
+
+
+
+      </a-entity>
+
+
+  <!--a-entity id='leafgroup' position='-40 -5 24' rotation="0 -45 0"><a-entity obj-model='obj: url(leaf.obj); mtl: url(leaf.mtl)' scale='0.17 0.17 0.17' position='0 0 0' rotation='10 35 85'><a-animation id='leaf1a' attribute='position' dur='18000' delay='0' fill='forwards' repeat='indefinite' easing='linear' from='-9 19 -9' to='-9 -1 -9'></a-animation><a-animation attribute='rotation' dur='5000' delay='0' fill='forwards' repeat='indefinite' easing='linear' from='0 0 180' to='0 360 -180'></a-animation></a-entity><a-entity obj-model='obj: url(leaf.obj); mtl: url(leaf.mtl)' scale='0.17 0.17 0.17' position='0 0 0' rotation='10 35 85'><a-animation id='leaf1a' attribute='position' dur='21000' delay='10500' fill='forwards' repeat='indefinite' easing='linear' from='9 19 -7' to='9 -1 -7'></a-animation><a-animation attribute='rotation' dur='5000' delay='0' fill='forwards' repeat='indefinite' easing='linear' from='0 0 180' to='0 360 -180'></a-animation></a-entity><a-entity obj-model='obj: url(leaf.obj); mtl: url(leaf.mtl)' scale='0.17 0.17 0.17' position='0 0 0' rotation='10 35 85'> <a-animation id='leaf1a' attribute='position' dur='15000' delay='1751' fill='forwards' repeat='indefinite' easing='linear' from='-9 19 8' to='-9 -1 8'></a-animation> <a-animation attribute='rotation' dur='2502' delay='0' fill='forwards' repeat='indefinite' easing='linear' from='0 0 180' to='0 360 -180'></a-animation> </a-entity> <a-entity obj-model='obj: url(leaf.obj); mtl: url(leaf.mtl)' scale='0.17 0.17 0.17' position='0 0 0' rotation='10 35 85'> <a-animation id='leaf1a' attribute='position' dur='18000' delay='1501' fill='forwards' repeat='indefinite' easing='linear' from='8 19 7' to='8 -1 7'></a-animation> <a-animation attribute='rotation' dur='5000' delay='0' fill='forwards' repeat='indefinite' easing='linear' from='0 0 180' to='0 360 -180'></a-animation></a-entity><a-entity obj-model='obj: url(leaf.obj); mtl: url(leaf.mtl)' scale='0.17 0.17 0.17' position='0 0 0' rotation='10 35 85'><a-animation id='leaf1a' attribute='position' dur='21000' delay='501' fill='forwards' repeat='indefinite' easing='linear' from='-4 19 -2' to='-4 -1 -2'></a-animation><a-animation attribute='rotation' dur='5000' delay='0' fill='forwards' repeat='indefinite' easing='linear' from='0 0 180' to='0 360 -180'></a-animation></a-entity><a-entity obj-model='obj: url(leaf.obj); mtl: url(leaf.mtl)' scale='0.17 0.17 0.17' position='0 0 0' rotation='10 35 85'><a-animation id='leaf1a' attribute='position' dur='15000' delay='751' fill='forwards' repeat='indefinite' easing='linear' from='3 19 6' to='3 -1 6'></a-animation><a-animation attribute='rotation' dur='2502' delay='0' fill='forwards' repeat='indefinite' easing='linear' from='0 0 180' to='0 360 -180'></a-animation></a-entity><a-entity obj-model='obj: url(leaf.obj); mtl: url(leaf.mtl)' scale='0.17 0.17 0.17' position='0 0 0' rotation='10 35 85'> <a-animation id='leaf1a' attribute='position' dur='18000' delay='1001' fill='forwards' repeat='indefinite' easing='linear' from='-5 19 3' to='-5 -1 3'></a-animation><a-animation attribute='rotation' dur='5000' delay='0' fill='forwards' repeat='indefinite' easing='linear' from='0 0 180' to='0 360 -180'></a-animation></a-entity><a-entity obj-model='obj: url(leaf.obj); mtl: url(leaf.mtl)' scale='0.17 0.17 0.17' position='0 0 0' rotation='10 35 85'><a-animation id='leaf1a' attribute='position' dur='21000' delay='1251' fill='forwards' repeat='indefinite' easing='linear' from='4 19 1' to='4 -1 1'></a-animation><a-animation attribute='rotation' dur='5000' delay='0' fill='forwards' repeat='indefinite' easing='linear' from='0 0 180' to='0 360 -180'></a-animation></a-entity></a-entity-->
+
+
+  </a-entity>
+
+
+      <!--a-entity id="moon" position="-500 700 450" rotation="0 -90 0"></a-entity>
+      <a-entity cached-obj-model="obj: url(moon.obj); mtl: url(moon.mtl)" scale="30 30 30" position="-500 699.9 450" rotation="0 135 0" n-mesh-collider="type: environment; convex: false"></a-entity>
+      <a-entity position="-505 702.01 455" rotation="0 135 0" scale="5 5 5" n-layout-browser="url: http://duckluck.net/portal/; isEnclosure:true"></a-entity>
+      <a-entity position="-180 1 -180" n-portal="targetEntity: #moon"></a-entity>
+      <a-entity position="-500 0 454" n-portal="targetSpace: experience-space-665506000857464982" ></a-entity-->
+
+      <a-sky radius="1050" rotation="-25" src="#sky" segments-width="16" segments-height="16"></a-sky>
+
+  </a-scene>
+  <script>
+
+  
+  </script>
+  <!--a id="duck" href="altspace://account.altvr.com/api/events/665506000857464982"></a-->
+  </body>
+</html>
