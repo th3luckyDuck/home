@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html>
+  <head>
+
+    <meta charset="utf-8">
+    <title>Duckys Home</title>
+    <meta name="Home" content="Home">
+    <script src="https://aframe.io/releases/0.3.0/aframe.js"></script>
+    <script src="https://cdn.rawgit.com/AltspaceVR/AltspaceSDK/v2.4.1/dist/altspace.js"></script>
+    <script src="https://cdn.rawgit.com/norybiak/Aframe-gltf/v0.1.2/dist/aframe-gltf.js"></script>
+    <script src="bake-vertex-light.js"></script>
+    <script src="https://rawgit.com/mayognaise/aframe-gif-shader/master/dist/aframe-gif-shader.min.js"></script>
+    <script src="https://rawgit.com/mayognaise/aframe-gif-component/master/dist/aframe-gif-component.min.js"></script>
+    <!--script src="bake-vertex-light2.js"></script>
+    <script src="bake-vertex-light3.js"></script>
+    <script src="cached-model.js"></script-->
+    <!--script src="cached-model.js"></script-->
+    <script>
+    AFRAME.registerComponent('model-opacity', 
+             {
+  schema: { type: 'number', default: '1' },
+  init: function () 
+  {
+    var self = this;
+
+    self.el.addEventListener('model-loaded', handleEvent);
+
+    function handleEvent()
+    {
+      self.el.object3D.traverse( function(child) 
+                    {
+        if (child instanceof THREE.Mesh) 
+        {
+          child.material.transparent = true;
+          child.material.opacity = self.data;
+        }
+      });
+    }
+  }
+});
+</script>
+
+</head>
+  <body>
+
+    <a-scene altspace="verticalAlign: middle; fullspace: true" vr-mode-ui="enabled: false"> 
+
+      <!-- Asset Loading -->
+      <a-assets> 
+
+
+      <!--a-asset-item id="rol-mtl" src="rol.mtl"></a-asset-item>
+
+      <a-asset-item id="rol-obj" src="rol.obj"></a-asset-item>
+
+      <a-asset-item id="tree-mtl" src="tree.mtl"></a-asset-item>
+
+      <a-asset-item id="tree-obj" src="tree.obj"></a-asset-item>
+
+      <a-asset-item id="temp-mtl" src="temp1.mtl"></a-asset-item>
+
+      <a-asset-item id="temp-obj" src="temp1.obj"></a-asset-item-->
+
+      <a-asset-item id="homeb-obj" src="homeb.obj"></a-asset-item>
+
+      <img id="sky" src="sky1.jpg"/>
+      <a-asset-item id="firelogs-obj" src="firelogs.obj"></a-asset-item>
+      <a-asset-item id="grass-mtl" src="grass.mtl"></a-asset-item>
+
+      </a-assets>
+
+      <a-entity camera position="0 10 0" wasd-controls="fly: true" look-controls></a-entity>
+      <a-light id="light1" type="directional" intensity="13000" position="150 15 150"></a-light>
+
+      <a-entity geometry="primitive:plane;" scale="300 300 300" position="63 -0.25 -35" rotation="-90 0 -90" material="src:url(water.jpg);transparent:true;opacity:0.85">
+        <a-animation attribute='rotation' dur='75000' delay='0' fill='forwards' repeat='indefinite' easing='linear' from='-90 0 -90' to='-90 -360 -90'>
+      </a-entity>
+      <a-entity geometry="primitive:plane;" scale="300 300 300" position="63 -0.7 -35" rotation="-90 0 -90" material="src:url(water.jpg);transparent:true;opacity:0.25"></a-entity>
+      <a-entity geometry="primitive:plane;" scale="300 300 300" position="63 -0.9 -35" rotation="-90 0 -90" material="src:url(water.jpg);transparent:true;opacity:1"></a-entity>
+      
+      <a-entity position="82 3.0 -2" rotation="0 165 0">
+
+        <!--a-entity position="-7 1.75 -9" rotation="0 245 0"-->
+
+      <a-entity geometry="primitive:sphere;" scale="10 50 10" position="-108 5 5" rotation="0 120 0" material="shader:gif;src:url(fall.gif);transparent:false;color:#fff;opacity:0.75 ">
+      </a-entity>
+
+      <!--a-entity geometry="primitive:plane;" scale="125 85 125" position="-116.49 19.92 -11.32" rotation="0 135 0" material="shader:gif;src:url(fall.gif);transparent:true;color:#fff;opacity:0.75 ">
+      </a-entity-->
+
+
+      <a-entity position="13 1.2 -65">
+      <a-entity obj-model="obj: url(firelogs.obj); mtl: url(grass.mtl)" scale="4 4 4" position="-4 1 5" n-mesh-collider="type: environment; convex: false" bake-vertex-light></a-entity>
+      
+      <a-entity geometry="primitive:plane;" position="-56.42 2 -38.38" rotation="0 0 0" material="shader:gif;src:url(fire2.gif);transparent:true;color:#fff;opacity:0.75"></a-entity>
+      <a-entity geometry="primitive:plane;" position="-56.42 2 -38.38" rotation="0 90 0" material="shader:gif;src:url(fire2.gif);transparent:true;color:#fff;opacity:0.75"></a-entity>
+      <a-entity geometry="primitive:plane;" position="-56.42 2 -38.38" rotation="0 180 0" material="shader:gif;src:url(fire2.gif);transparent:true;color:#fff;opacity:0.75"></a-entity>
+      <a-entity geometry="primitive:plane;" position="-56.42 2 -38.38" rotation="0 270 0"  material="shader:gif;src:url(fire2.gif);transparent:true;color:#fff;opacity:0.75"></a-entity>
+      </a-entity>
+   
+  
+        
+      
+
+      <a-entity position="-5 -6 -39" rotation="0 165 0">
+
+      <a-entity obj-model="obj: url(homebc.obj); mtl: url(homeb.mtl)" scale="4 4 4" position="0 0 0" n-mesh-collider="type: environment; convex: false" bake-vertex-light></a-entity>
+      
+
+
+      <a-box scale="25 0.1 25" position="0 3.75 -90" color="blue" opacity="0.3" altspace-cursor-collider="enabled: false"></a-box>
+
+
+
+      </a-entity>
+
+
+  
+
+  </a-entity>
+
+      <a-sky radius="1050" rotation="-25" src="#sky" segments-width="16" segments-height="16"></a-sky>
+
+  </a-scene>
+  <script>
+
+  
+  </script>
+  </body>
+</html>
